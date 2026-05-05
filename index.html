@@ -8,6 +8,11 @@
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#805533" />
   
+  <!-- Security Headers -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://joycebendia.com.br https://www.transparenttextures.com; connect-src 'self';">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  
   <!-- SEO Primary Meta Tags -->
   <title>Curso de Lash Design Premium | Método M.O.P | Joyce Bendia</title>
   <meta name="title" content="Curso de Lash Design Premium | Método M.O.P | Joyce Bendia" />
@@ -105,21 +110,22 @@
       theme: {
         extend: {
           "colors": {
-            "surface": "#f9f8f5",
-            "background": "#f7f6f2",
-            "primary": "#0D9488",
-            "primary-dark": "#0A746A",
-            "secondary": "#d6c3b3",
-            "accent": "#f3dfce",
-            "on-surface": "#28251d",
-            "on-background": "#28251d",
+            "surface": "#F7F6F2",
+            "background": "#EAE7DD",
+            "primary": "#5D4037",
+            "primary-dark": "#3E2723",
+            "secondary": "#A68A73",
+            "accent": "#D4A373",
+            "on-surface": "#4E342E",
+            "on-background": "#4E342E",
+            "on-surface-variant": "#8B7368",
             "on-primary": "#ffffff",
             "muted": "#8c857b",
-            "border": "#e5e1d8",
-            "surface-container": "#f1eee8",
-            "surface-container-high": "#e9e5db",
-            "surface-container-low": "#f9f8f5",
-            "surface-container-lowest": "#ffffff"
+            "border": "#D7D3C6",
+            "surface-container": "#F1EFE7",
+            "surface-container-high": "#E5E1D4",
+            "surface-container-low": "#F3ECE4",
+            "surface-container-lowest": "#EFE7DD"
           },
           "borderRadius": {
             "DEFAULT": "0.125rem",
@@ -140,8 +146,8 @@
   <style>
     body {
       font-family: 'Manrope', sans-serif;
-      background-color: #f7f6f2;
-      color: #28251d;
+      background-color: #F7F6F2;
+      color: #4E342E;
     }
 
     .serif {
@@ -152,7 +158,7 @@
     .signature {
       font-family: 'Pinyon Script', cursive;
       font-size: 1.8rem;
-      color: #0D9488;
+      color: #5D4037;
     }
 
     .material-symbols-outlined {
@@ -551,115 +557,69 @@
       margin: 0 auto;
     }
 
-    /* Editorial Carousel */
-    .editorial-carousel-container {
-      position: relative;
+    /* Marquee Gallery */
+    .marquee-gallery {
+      width: 100%;
       overflow: hidden;
-      width: 100%;
-      padding: 20px 0;
-    }
-    .carousel-track {
       position: relative;
-      width: 100%;
-      height: 400px;
-      margin: 0 auto;
+      padding: 40px 0;
+    }
+    .marquee-track {
       display: flex;
-      justify-content: center;
-      align-items: center;
+      width: max-content;
+      animation: marqueeInfinite 40s linear infinite;
+      will-change: transform;
     }
-    @media (min-width: 768px) {
-      .carousel-track {
-        height: 500px;
-      }
+    .marquee-gallery:hover .marquee-track {
+      animation-play-state: paused;
     }
-    .carousel-slide {
-      position: absolute;
-      top: 50%;
-      left: 50%;
+    .marquee-group {
+      display: flex;
+      gap: 24px;
+      padding-right: 24px;
+    }
+    .marquee-card {
       width: 260px;
-      height: 325px;
-      transform: translate(-50%, -50%);
-      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-      opacity: 0;
-      z-index: 0;
-      pointer-events: none;
-      border: 1px solid rgba(13, 148, 136, 0.1);
-      border-radius: 8px;
+      height: 360px;
+      border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      position: relative;
+      border: 1px solid rgba(93, 64, 55, 0.1);
+      background: #F3ECE4;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+      transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+      flex-shrink: 0;
     }
-    @media (min-width: 768px) {
-      .carousel-slide {
-        width: 320px;
-        height: 400px;
+    .marquee-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 30px 60px rgba(93, 64, 55, 0.12);
+      border-color: rgba(93, 64, 55, 0.3);
+    }
+    .marquee-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .marquee-card:hover img {
+      transform: scale(1.1);
+    }
+
+
+    @keyframes marqueeInfinite {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @media (max-width: 768px) {
+      .marquee-card {
+        width: 200px;
+        height: 280px;
+        border-radius: 16px;
       }
-    }
-    .carousel-slide.active {
-      opacity: 1;
-      z-index: 10;
-      transform: translate(-50%, -50%) scale(1.1);
-      filter: brightness(1) grayscale(0);
-      box-shadow: 0 40px 100px rgba(13, 148, 136, 0.15);
-      border-color: rgba(13, 148, 136, 0.3);
-      pointer-events: auto;
-    }
-    .carousel-slide.prev {
-      opacity: 0.5;
-      z-index: 5;
-      transform: translate(-130%, -50%) scale(0.85);
-      filter: brightness(0.5) grayscale(0.3);
-      pointer-events: auto;
-      cursor: pointer;
-    }
-    .carousel-slide.next {
-      opacity: 0.5;
-      z-index: 5;
-      transform: translate(30%, -50%) scale(0.85);
-      filter: brightness(0.5) grayscale(0.3);
-      pointer-events: auto;
-      cursor: pointer;
-    }
-    .carousel-slide.prev-hidden {
-      transform: translate(-180%, -50%) scale(0.7);
-      opacity: 0;
-      z-index: 1;
-    }
-    .carousel-slide.next-hidden {
-      transform: translate(80%, -50%) scale(0.7);
-      opacity: 0;
-      z-index: 1;
-    }
-    .carousel-btn {
-      background: rgba(26, 20, 16, 0.8);
-      backdrop-filter: blur(8px);
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      cursor: pointer;
-      border: 1px solid rgba(212, 175, 110, 0.3);
-      color: #d4af6e;
-      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 20;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .carousel-btn.btn-prev { left: 10px; }
-    .carousel-btn.btn-next { right: 10px; }
-    .carousel-btn:hover {
-      background: #d4af6e;
-      color: #1a1410;
-      transform: translateY(-50%) scale(1.1);
-    }
-    @media (max-width: 767px) {
-      .carousel-slide.prev {
-        transform: translate(-100%, -50%) scale(0.8);
-      }
-      .carousel-slide.next {
-        transform: translate(0%, -50%) scale(0.8);
+      .marquee-group {
+        gap: 16px;
+        padding-right: 16px;
       }
     }
     
@@ -803,31 +763,79 @@
   filter: blur(0);
 }
 
-/* Premium CTA Shimmer */
-@keyframes shimmer {
-  0% { transform: translateX(-150%) skewX(-15deg); }
-  100% { transform: translateX(250%) skewX(-15deg); }
-}
-.btn-shimmer {
-  position: relative;
-  overflow: hidden;
-}
-.btn-shimmer::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; width: 30%; height: 100%;
-  background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
-  animation: shimmer 3.5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+@keyframes premiumSweep {
+  0% { transform: skewX(-20deg) translateX(-220%); opacity: 0; }
+  8% { opacity: 1; }
+  55% { opacity: 1; }
+  100% { transform: skewX(-20deg) translateX(620%); opacity: 0; }
 }
 
-/* FAQ accordion smooth height */
+.btn-shimmer,
+.btn-interactive,
+.btn-portal {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #6b4635 0%, #5d4037 45%, #7a5240 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255,255,255,0.14) !important;
+  box-shadow: 0 12px 30px rgba(93, 64, 55, 0.20), inset 0 1px 0 rgba(255,255,255,0.10) !important;
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+.btn-shimmer::after,
+.btn-interactive::after,
+.btn-portal::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute;
+  top: -20%;
+  left: -40%;
+  width: 22%;
+  height: 140%;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.10) 20%,
+    rgba(255,255,255,0.38) 50%,
+    rgba(255,255,255,0.10) 80%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: skewX(-20deg) translateX(0);
+  animation: premiumSweep 2.8s linear infinite;
+  pointer-events: none;
+}
+
+.btn-shimmer:hover,
+.btn-interactive:hover,
+.btn-portal:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 18px 44px rgba(93, 64, 55, 0.28), inset 0 1px 0 rgba(255,255,255,0.16) !important;
+}
+
+/* Oferta Refinement */
+#oferta .max-w-4xl {
+  background: linear-gradient(180deg, #f3ece4 0%, #efe7dd 100%) !important;
+  border: 1px solid rgba(93, 64, 55, 0.08) !important;
+  box-shadow: 0 24px 60px rgba(78, 52, 46, 0.08) !important;
+}
+
+#oferta,
+#oferta .faq-item,
+#oferta .bg-white,
+#oferta [class*="bg-white"] {
+  background-color: transparent !important;
+}
+
+/* FAQ accordion refined height & speed */
 .faq-item .faq-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s ease;
+  transition: max-height 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: max-height;
 }
-.faq-item.active .faq-content {
-  max-height: 500px; /* enough for content */
+
+.faq-item.active .material-symbols-outlined {
+  transform: rotate(180deg);
 }
 
 /* Parallax speed via data attribute */
@@ -856,18 +864,7 @@
         animation: float-up 6s ease-in-out infinite;
       }
 
-      /* Enhanced hover for buttons */
-      .btn-interactive, .btn-portal {
-        background: linear-gradient(135deg, #91613b 0%, #70492c 100%);
-        transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-        border: 1px solid rgba(255,255,255,0.1);
-        box-shadow: 0 10px 30px rgba(128, 85, 51, 0.15), inset 0 1px 0 rgba(255,255,255,0.1);
-      }
-      .btn-interactive:hover, .btn-portal:hover {
-        transform: translateY(-6px) scale(1.03);
-        background: linear-gradient(135deg, #a36f45 0%, #805533 100%);
-        box-shadow: 0 20px 60px rgba(128, 85, 51, 0.25), inset 0 1px 0 rgba(255,255,255,0.2);
-      }
+
     }
 
     /* Reading Progress Bar */
@@ -877,7 +874,7 @@
       left: 0;
       width: 0%;
       height: 2px;
-      background: #0D9488;
+      background: #5D4037;
       z-index: 101;
       transition: width 0.1s ease-out;
     }
@@ -901,10 +898,9 @@
 
       <div class="hidden md:flex items-center gap-12 text-[11px] uppercase tracking-[0.25em] font-bold">
         <a class="hover:text-primary transition-colors cursor-pointer" href="#hero">Início</a>
-        <a class="hover:text-primary transition-colors cursor-pointer" href="#metodo">O Método</a>
-        <a class="hover:text-primary transition-colors cursor-pointer" href="#muses">Muses</a>
+
         <a class="hover:text-primary transition-colors cursor-pointer" href="#sobre">Mentoria</a>
-        <a class="hover:text-primary transition-colors cursor-pointer" href="#bonus">Bônus</a>
+
         <a class="hover:text-primary transition-colors cursor-pointer" href="#faq">FAQ</a>
       </div>
 
@@ -931,7 +927,7 @@
 
       <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-12 items-center relative z-10">
         <div class="md:col-span-7 space-y-8 page-load">
-          <div class="inline-flex items-center gap-3 px-4 py-2 bg-surface-container-high/50 backdrop-blur rounded-full border border-white/40">
+          <div class="inline-flex items-center gap-3 px-4 py-2 bg-surface-container-high/50 backdrop-blur rounded-full border border-primary/20">
             <span class="flex h-2 w-2 rounded-full bg-primary animate-pulse"></span>
             <span class="text-[10px] font-extrabold tracking-[0.2em] uppercase text-on-surface-variant">Inscrições Abertas • Método M.O.P</span>
           </div>
@@ -964,7 +960,7 @@
           <div class="relative z-10 hero-arch overflow-hidden aspect-[4/5] bg-surface-container">
             <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&fit=crop" class="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000 parallax-image" alt="Joyce Bendia - Especialista e Mentora de Lash Design Premium" loading="eager">
           </div>
-          <div class="absolute -bottom-6 -left-6 bg-white p-6 atmospheric-shadow rounded-xl z-20 reveal entrance-delay-2 max-w-[180px]">
+          <div class="absolute -bottom-6 -left-6 bg-surface-container-low p-6 atmospheric-shadow rounded-xl z-20 reveal entrance-delay-2 max-w-[180px]">
             <span class="block text-3xl font-serif text-primary mb-1 tracking-tighter"><span class="counter" data-count="45">0</span> Dias</span>
             <span class="text-[10px] uppercase font-bold tracking-wider leading-tight opacity-70">Retenção Extrema Comprovada</span>
           </div>
@@ -975,21 +971,10 @@
       </div>
     </section>
 
-    <!-- PROOF -->
-    <div class="bg-surface-container-high/30 py-12 border-y border-surface-container-high/50">
-      <div class="max-w-7xl mx-auto px-6 overflow-hidden">
-        <div class="flex justify-around items-center gap-12 opacity-30 grayscale filter mix-blend-multiply">
-          <span class="serif text-xl md:text-2xl uppercase tracking-[0.2em]">MUSE BEAUTY</span>
-          <span class="serif text-xl md:text-2xl uppercase tracking-[0.2em]">GLAM MAGAZINE</span>
-          <span class="serif text-xl md:text-2xl uppercase tracking-[0.2em]">LASH EXPERT</span>
-          <span class="serif text-xl md:text-2xl uppercase tracking-[0.2em]">ESTÉTICA LUXO</span>
-          <span class="hidden sm:block serif text-xl md:text-2xl uppercase tracking-[0.2em]">PREMIUM LASHES</span>
-        </div>
-      </div>
-    </div>
+
 
     <!-- PROBLEM -->
-    <section class="py-32 px-6 bg-surface-container-low overflow-hidden">
+    <section class="py-32 px-6 bg-surface overflow-hidden">
       <div class="max-w-7xl mx-auto">
         <div class="grid md:grid-cols-2 gap-20 items-end mb-24">
           <div class="reveal">
@@ -1004,24 +989,24 @@
         </div>
 
         <div class="grid sm:grid-cols-3 gap-8 reveal-stagger">
-          <div class="card-luxury p-10 bg-surface-container-low rounded-2xl border border-surface-container-high/50 group">
-            <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center mb-8 shadow-sm group-hover:bg-primary group-hover:text-white transition-all">
+          <div class="card-luxury p-10 bg-surface-container-low rounded-3xl border border-primary/10 atmospheric-shadow group transition-all duration-500">
+            <div class="w-14 h-14 bg-surface-container-low rounded-full flex items-center justify-center mb-8 shadow-sm group-hover:bg-primary group-hover:text-white transition-all">
               <span class="material-symbols-outlined">running_with_errors</span>
             </div>
             <h3 class="serif text-2xl mb-4">Baixa Retenção</h3>
             <p class="text-sm text-on-surface/60 leading-relaxed">Suas clientes reclamam que os cílios caem em poucos dias? Isso destrói sua reputação e sua agenda.</p>
           </div>
 
-          <div class="card-luxury p-10 bg-surface-container-low rounded-2xl border border-surface-container-high/50 group">
-            <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center mb-8 shadow-sm group-hover:bg-primary group-hover:text-white transition-all">
+          <div class="card-luxury p-10 bg-surface-container-low rounded-3xl border border-primary/10 atmospheric-shadow group transition-all duration-500">
+            <div class="w-14 h-14 bg-surface-container-low rounded-full flex items-center justify-center mb-8 shadow-sm group-hover:bg-primary group-hover:text-white transition-all">
               <span class="material-symbols-outlined">payments</span>
             </div>
             <h3 class="serif text-2xl mb-4">Guerra de Preços</h3>
             <p class="text-sm text-on-surface/60 leading-relaxed">Você sente que precisa cobrar barato para ter clientes? Quem vem por preço, por preço vai embora.</p>
           </div>
 
-          <div class="card-luxury p-10 bg-surface-container-low rounded-2xl border border-surface-container-high/50 group">
-            <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center mb-8 shadow-sm group-hover:bg-primary group-hover:text-white transition-all">
+          <div class="card-luxury p-10 bg-surface-container-low rounded-3xl border border-primary/10 atmospheric-shadow group transition-all duration-500">
+            <div class="w-14 h-14 bg-surface-container-low rounded-full flex items-center justify-center mb-8 shadow-sm group-hover:bg-primary group-hover:text-white transition-all">
               <span class="material-symbols-outlined">self_improvement</span>
             </div>
             <h3 class="serif text-2xl mb-4">Insegurança Técnica</h3>
@@ -1031,114 +1016,12 @@
       </div>
     </section>
 
-    <!-- METHOD -->
-    <section id="metodo" class="py-32 px-6 bg-white relative overflow-hidden">
-      <div class="absolute inset-0 opacity-20 pointer-events-none">
-         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-gradient-to-b from-accent/30 to-transparent blur-[120px]"></div>
-      </div>
-      
-      <div class="max-w-5xl mx-auto text-center mb-24 reveal">
-        <span class="signature text-primary mb-4 block">O Caminho da Maestria</span>
-        <h2 class="serif text-5xl md:text-7xl mb-8">Os 3 Pilares que sustentam <br/> <span class="italic text-primary">o seu Sucesso</span></h2>
-        <div class="w-20 h-0.5 bg-primary/30 mx-auto"></div>
-      </div>
 
-      <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-16 relative">
-        <div class="text-center space-y-6 reveal">
-          <div class="text-8xl font-serif text-secondary/20 select-none">01</div>
-          <h4 class="text-sm font-bold uppercase tracking-[0.3em] text-primary">Técnica de Elite</h4>
-          <h3 class="serif text-3xl">Retenção de Cílios de 45 Dias</h3>
-          <p class="text-on-surface/60 leading-relaxed">
-            Domine o isolamento cirúrgico e a química avançada dos adesivos. Aprenda a técnica que garante extensões de cílios impecáveis por mais de 6 semanas, eliminando o medo da queda precoce.
-          </p>
-        </div>
-        <div class="text-center space-y-6 reveal delay-200">
-          <div class="text-8xl font-serif text-secondary/20 select-none">02</div>
-          <h4 class="text-sm font-bold uppercase tracking-[0.3em] text-primary">Business Luxury</h4>
-          <h3 class="serif text-3xl">Ticket Alto e Fidelidade</h3>
-          <p class="text-on-surface/60 leading-relaxed">
-            Não seja apenas uma aplicadora, seja uma empresária. Aprenda a criar uma experiência que justifica preços premium e transforma clientes em fãs fiéis da sua marca.
-          </p>
-        </div>
-        <div class="text-center space-y-6 reveal delay-400">
-          <div class="text-8xl font-serif text-secondary/20 select-none">03</div>
-          <h4 class="text-sm font-bold uppercase tracking-[0.3em] text-primary">Visagismo Estratégico</h4>
-          <h3 class="serif text-3xl">Design que Valoriza</h3>
-          <p class="text-on-surface/60 leading-relaxed">
-            Entenda a geometria do olhar. Aprenda a desenhar mapeamentos exclusivos que realçam a beleza real de cada mulher, criando um diferencial impossível de ser copiado.
-          </p>
-        </div>
-      </div>
-    </section>
 
-    <!-- TESTIMONIALS (MUSES) -->
-    <section id="muses" class="py-32 px-6 bg-surface-container-low overflow-hidden">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-24 reveal">
-          <span class="text-primary font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">Transformação Real</span>
-          <h2 class="serif text-4xl md:text-6xl">Vozes que ecoam <br/> <span class="italic text-primary">a Maestria</span></h2>
-        </div>
-        
-        <div class="grid md:grid-cols-3 gap-8 reveal-stagger">
-          <div class="bg-surface-container-low p-10 rounded-3xl atmospheric-shadow space-y-6 italic text-on-surface/80">
-            <div class="flex text-primary mb-4">
-              <span class="material-symbols-outlined !text-xl">star</span>
-              <span class="material-symbols-outlined !text-xl">star</span>
-              <span class="material-symbols-outlined !text-xl">star</span>
-              <span class="material-symbols-outlined !text-xl">star</span>
-              <span class="material-symbols-outlined !text-xl">star</span>
-            </div>
-            <p class="text-lg leading-relaxed">"Antes do M.O.P eu tinha medo das clientes reclamarem da queda. Hoje minha agenda está lotada e cobro 3x mais do que antes."</p>
-            <div class="flex items-center gap-4 pt-6">
-              <div class="w-12 h-12 rounded-full bg-surface-container-high"></div>
-              <div>
-                <span class="block font-bold text-sm text-on-surface">Mariana S.</span>
-                <span class="text-[10px] uppercase tracking-widest opacity-50">Lash Designer Senior</span>
-              </div>
-            </div>
-          </div>
-          
-          <div class="bg-on-surface text-surface p-10 rounded-3xl atmospheric-shadow space-y-6 italic">
-            <div class="flex text-white/40 mb-4">
-              <span class="material-symbols-outlined !text-xl fill-1">star</span>
-              <span class="material-symbols-outlined !text-xl fill-1">star</span>
-              <span class="material-symbols-outlined !text-xl fill-1">star</span>
-              <span class="material-symbols-outlined !text-xl fill-1">star</span>
-              <span class="material-symbols-outlined !text-xl fill-1">star</span>
-            </div>
-            <p class="text-lg leading-relaxed">"O visagismo mudou tudo. Minhas clientes sentem que o trabalho é exclusivo para elas. Joyce é a melhor mentora que já tive."</p>
-            <div class="flex items-center gap-4 pt-6">
-              <div class="w-12 h-12 rounded-full bg-surface/20"></div>
-              <div>
-                <span class="block font-bold text-sm">Carolina L.</span>
-                <span class="text-[10px] uppercase tracking-widest opacity-60">Studio Luxury Beauty</span>
-              </div>
-            </div>
-          </div>
 
-          <div class="bg-surface-container-low p-10 rounded-3xl atmospheric-shadow space-y-6 italic text-on-surface/80">
-            <div class="flex text-primary mb-4">
-              <span class="material-symbols-outlined !text-xl">star</span>
-              <span class="material-symbols-outlined !text-xl">star</span>
-              <span class="material-symbols-outlined !text-xl">star</span>
-              <span class="material-symbols-outlined !text-xl">star</span>
-              <span class="material-symbols-outlined !text-xl">star</span>
-            </div>
-            <p class="text-lg leading-relaxed">"Saí do zero e em 3 meses já tinha meu próprio espaço. O método é prático e o suporte da Joyce é impecável."</p>
-            <div class="flex items-center gap-4 pt-6">
-              <div class="w-12 h-12 rounded-full bg-surface-container-high"></div>
-              <div>
-                <span class="block font-bold text-sm text-on-surface">Beatriz M.</span>
-                <span class="text-[10px] uppercase tracking-widest opacity-50">Iniciante de Sucesso</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- GALLERY -->
-    <section id="portal-entrada" class="relative bg-white py-32 overflow-hidden border-y border-border/30">
+    <section id="portal-entrada" class="relative bg-surface py-32 overflow-hidden">
       <div class="max-w-7xl mx-auto px-6">
         <div class="max-w-4xl mx-auto text-center mb-16 relative z-10 reveal">
           <span class="text-[10px] uppercase tracking-[0.5em] text-primary font-bold mb-4 block">Portfólio & Resultados</span>
@@ -1146,29 +1029,51 @@
           <div class="portal-divider"></div>
         </div>
 
-        <div class="editorial-carousel-container relative z-10 reveal delay-200">
-          <div class="carousel-track" id="carouselTrack">
-            <div class="carousel-slide active">
-              <img src="https://images.unsplash.com/photo-1583001838478-224a8e552552?w=800&fit=crop" class="w-full h-full object-cover" alt="Resultado de Extensão de Cílios Premium - Método M.O.P Joyce Bendia" loading="lazy">
-              <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent text-center">
-                <span class="text-[10px] text-primary font-bold uppercase tracking-widest">Efeito Molhado Premium</span>
+        <div class="marquee-gallery reveal delay-200">
+          <div class="marquee-track">
+            <!-- Group 1 -->
+            <div class="marquee-group">
+              <div class="marquee-card">
+                <img src="img/port1.jpg" alt="Lash Design Realizado - Joyce Bendia">
+              </div>
+              <div class="marquee-card">
+                <img src="img/port2.jpg" alt="Lash Design Realizado - Joyce Bendia">
+              </div>
+              <div class="marquee-card">
+                <img src="img/port3.jpg" alt="Lash Design Realizado - Joyce Bendia">
+              </div>
+              <div class="marquee-card">
+                <img src="img/port4.jpg" alt="Lash Design Realizado - Joyce Bendia">
+              </div>
+              <div class="marquee-card">
+                <img src="img/port5.jpg" alt="Lash Design Realizado - Joyce Bendia">
+              </div>
+              <div class="marquee-card">
+                <img src="img/port6.jpg" alt="Lash Design Realizado - Joyce Bendia">
               </div>
             </div>
-            <div class="carousel-slide next">
-              <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=800&fit=crop" class="w-full h-full object-cover" alt="Volume Russo Editorial - Técnica Avançada Joyce Bendia" loading="lazy">
-              <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent text-center">
-                <span class="text-[10px] text-primary font-bold uppercase tracking-widest">Volume Russo Editorial</span>
+            <!-- Group 2 (Duplicate for infinite loop) -->
+            <div class="marquee-group">
+              <div class="marquee-card">
+                <img src="img/port1.jpg" alt="Lash Design Realizado - Joyce Bendia">
               </div>
-            </div>
-            <div class="carousel-slide next-hidden">
-              <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&fit=crop" class="w-full h-full object-cover" alt="Natural Soft Lash - Design de Cílios Natural Joyce Bendia" loading="lazy">
-              <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent text-center">
-                <span class="text-[10px] text-primary font-bold uppercase tracking-widest">Natural Soft Lash</span>
+              <div class="marquee-card">
+                <img src="img/port2.jpg" alt="Lash Design Realizado - Joyce Bendia">
+              </div>
+              <div class="marquee-card">
+                <img src="img/port3.jpg" alt="Lash Design Realizado - Joyce Bendia">
+              </div>
+              <div class="marquee-card">
+                <img src="img/port4.jpg" alt="Lash Design Realizado - Joyce Bendia">
+              </div>
+              <div class="marquee-card">
+                <img src="img/port5.jpg" alt="Lash Design Realizado - Joyce Bendia">
+              </div>
+              <div class="marquee-card">
+                <img src="img/port6.jpg" alt="Lash Design Realizado - Joyce Bendia">
               </div>
             </div>
           </div>
-          <button class="carousel-btn btn-prev" id="prevBtn" aria-label="Anterior"><span class="material-symbols-outlined">chevron_left</span></button>
-          <button class="carousel-btn btn-next" id="nextBtn" aria-label="Próximo"><span class="material-symbols-outlined">chevron_right</span></button>
         </div>
 
         <div class="mt-16 text-center relative z-10 reveal delay-300">
@@ -1212,55 +1117,12 @@
       </div>
     </section>
 
-    <!-- BÔNUS -->
-    <section id="bonus" class="py-32 px-6 bg-surface relative overflow-hidden">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-24 reveal">
-          <h2 class="serif text-5xl md:text-7xl mb-6">Presentes <span class="italic text-primary">Exclusivos</span></h2>
-          <p class="text-on-surface/50 max-w-2xl mx-auto">Ao entrar hoje no Método M.O.P, você recebe ferramentas complementares para acelerar seus resultados em meses.</p>
-        </div>
-        <div class="grid sm:grid-cols-3 gap-8 reveal-stagger">
-          <div class="bg-surface-container-low p-1.5 rounded-3xl atmospheric-shadow transition-transform hover:-translate-y-2 duration-500">
-            <div class="bg-white rounded-[1.4rem] p-10 space-y-6 h-full flex flex-col">
-              <span class="material-symbols-outlined !text-5xl text-primary">photo_camera</span>
-              <h3 class="serif text-2xl">Lash Photography</h3>
-              <p class="text-sm text-on-surface/60 leading-relaxed flex-grow">O guia completo para tirar fotos que parecem de capa de revista usando apenas seu celular.</p>
-              <div class="pt-6 border-t border-surface-container flex items-center justify-between text-[10px] font-bold tracking-widest uppercase">
-                <span class="opacity-40">Valor: R$ 497</span>
-                <span class="text-primary">Gratuito</span>
-              </div>
-            </div>
-          </div>
-          <div class="bg-surface-container-low p-1.5 rounded-3xl atmospheric-shadow transition-transform hover:-translate-y-2 duration-500">
-            <div class="bg-white rounded-[1.4rem] p-10 space-y-6 h-full flex flex-col">
-              <span class="material-symbols-outlined !text-5xl text-primary">verified_user</span>
-              <h3 class="serif text-2xl">Contratos Blindados</h3>
-              <p class="text-sm text-on-surface/60 leading-relaxed flex-grow">Modelos de fichas de anamnese e contratos para te dar total segurança jurídica no dia a dia.</p>
-              <div class="pt-6 border-t border-surface-container flex items-center justify-between text-[10px] font-bold tracking-widest uppercase">
-                <span class="opacity-40">Valor: R$ 297</span>
-                <span class="text-primary">Gratuito</span>
-              </div>
-            </div>
-          </div>
-          <div class="bg-surface-container-low p-1.5 rounded-3xl atmospheric-shadow transition-transform hover:-translate-y-2 duration-500">
-            <div class="bg-white rounded-[1.4rem] p-10 space-y-6 h-full flex flex-col">
-              <span class="material-symbols-outlined !text-5xl text-primary">trending_up</span>
-              <h3 class="serif text-2xl">Mentoria em Grupo</h3>
-              <p class="text-sm text-on-surface/60 leading-relaxed flex-grow">Encontros ao vivo para tirar dúvidas técnicas e de negócio diretamente com a Joyce.</p>
-              <div class="pt-6 border-t border-surface-container flex items-center justify-between text-[10px] font-bold tracking-widest uppercase">
-                <span class="opacity-40">Valor: R$ 1.997</span>
-                <span class="text-primary">Gratuito</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+
 
     <!-- OFERTA -->
-    <section id="oferta" class="py-32 px-6 bg-accent/10 text-on-surface relative overflow-hidden">
+    <section id="oferta" class="py-40 px-6 bg-surface relative overflow-hidden">
       <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-      <div class="max-w-4xl mx-auto bg-surface p-12 md:p-24 atmospheric-shadow relative z-10 border border-primary/10">
+      <div class="max-w-4xl mx-auto p-12 md:p-24 atmospheric-shadow relative z-10 rounded-[40px]">
         <div class="text-center space-y-8 mb-16 reveal">
           <span class="text-[11px] font-bold uppercase tracking-[0.5em] text-primary">Inscrições Limitadas</span>
           <h2 class="serif text-5xl md:text-8xl leading-none">Entre no <br/> <span class="italic text-primary">Método M.O.P</span></h2>
@@ -1276,7 +1138,7 @@
             </div>
             <span class="block text-on-surface/60 mt-4 font-bold text-sm">Ou R$ 1.497 à vista</span>
           </div>
-          <a href="https://pay.yourcheckout.com" class="w-full px-12 py-8 bg-primary text-on-primary text-sm font-bold uppercase tracking-[0.3em] hover:scale-105 transition-transform text-center atmospheric-shadow btn-shimmer">Garantir Minha Vaga Agora</a>
+          <a href="https://pay.yourcheckout.com" target="_blank" rel="noopener noreferrer" class="w-full px-12 py-8 bg-primary text-on-primary text-sm font-bold uppercase tracking-[0.3em] hover:scale-105 transition-transform text-center atmospheric-shadow btn-shimmer">Garantir Minha Vaga Agora</a>
           <div class="flex flex-wrap justify-center gap-8 opacity-60">
             <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary">verified</span><span class="text-[10px] font-bold uppercase tracking-widest">Garantia 7 Dias</span></div>
             <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary">credit_card</span><span class="text-[10px] font-bold uppercase tracking-widest">Parcelamento 12x</span></div>
@@ -1287,28 +1149,28 @@
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="py-32 px-6 bg-surface-container-lowest overflow-hidden">
+    <section id="faq" class="py-32 px-6 bg-surface overflow-hidden">
       <div class="max-w-3xl mx-auto">
         <div class="text-center mb-20 reveal">
           <h2 class="serif text-5xl md:text-6xl mb-4">Dúvidas <span class="italic text-primary">Frequentes</span></h2>
           <p class="text-on-surface/40">Tudo o que você precisa saber para tomar sua decisão.</p>
         </div>
         <div class="space-y-4 reveal-stagger">
-          <div class="faq-item border border-surface-container-high p-8 rounded-2xl cursor-pointer hover:bg-surface-container-low transition-colors group">
+          <div class="faq-item border border-primary/10 bg-surface-container-low/50 backdrop-blur p-8 rounded-3xl cursor-pointer hover:bg-surface-container-low transition-all duration-300 group atmospheric-shadow">
             <div class="flex items-center justify-between gap-4">
               <h4 class="serif text-xl md:text-2xl">O curso serve para iniciantes do zero?</h4>
               <span class="material-symbols-outlined transition-transform duration-300">expand_more</span>
             </div>
             <div class="faq-content text-on-surface/60 text-sm leading-relaxed">Sim, o Método M.O.P foi desenhado em uma progressão lógica que leva você do absoluto zero à maestria técnica e posicionamento de luxo.</div>
           </div>
-          <div class="faq-item border border-surface-container-high p-8 rounded-2xl cursor-pointer hover:bg-surface-container-low transition-colors group">
+          <div class="faq-item border border-primary/10 bg-surface-container-low/50 backdrop-blur p-8 rounded-3xl cursor-pointer hover:bg-surface-container-low transition-all duration-300 group atmospheric-shadow">
             <div class="flex items-center justify-between gap-4">
               <h4 class="serif text-xl md:text-2xl">Por quanto tempo terei acesso ao curso?</h4>
               <span class="material-symbols-outlined transition-transform duration-300">expand_more</span>
             </div>
             <div class="faq-content text-on-surface/60 text-sm leading-relaxed">Você terá acesso ilimitado a todas as aulas e atualizações por 12 meses.</div>
           </div>
-          <div class="faq-item border border-surface-container-high p-8 rounded-2xl cursor-pointer hover:bg-surface-container-low transition-colors group">
+          <div class="faq-item border border-primary/10 bg-surface-container-low/50 backdrop-blur p-8 rounded-3xl cursor-pointer hover:bg-surface-container-low transition-all duration-300 group atmospheric-shadow">
             <div class="flex items-center justify-between gap-4">
               <h4 class="serif text-xl md:text-2xl">Tem certificado de conclusão?</h4>
               <span class="material-symbols-outlined transition-transform duration-300">expand_more</span>
@@ -1335,16 +1197,16 @@
       <div class="space-y-6">
         <h5 class="text-[10px] font-bold uppercase tracking-[0.4em] text-primary">Navegação</h5>
         <ul class="space-y-4 text-sm text-on-surface/60">
-          <li><a href="#metodo" class="hover:text-primary transition-colors">O Método</a></li>
-          <li><a href="#bonus" class="hover:text-primary transition-colors">Bônus</a></li>
+
+
           <li><a href="#oferta" class="hover:text-primary transition-colors">Oferta</a></li>
         </ul>
       </div>
       <div class="space-y-6">
         <h5 class="text-[10px] font-bold uppercase tracking-[0.4em] text-primary">Suporte</h5>
         <ul class="space-y-4 text-sm text-on-surface/60">
-          <li><a href="https://wa.me/yourlink" class="hover:text-primary transition-colors">WhatsApp</a></li>
-          <li><a href="#" class="hover:text-primary transition-colors">Instagram</a></li>
+          <li><a href="https://wa.me/yourlink" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">WhatsApp</a></li>
+          <li><a href="https://instagram.com/joycebendia" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">Instagram</a></li>
         </ul>
       </div>
     </div>
@@ -1354,7 +1216,7 @@
     </div>
   </footer>
 
-  <a href="https://wa.me/yourlink" class="whatsapp-premium" aria-label="WhatsApp">
+  <a href="https://wa.me/yourlink" target="_blank" rel="noopener noreferrer" class="whatsapp-premium" aria-label="WhatsApp">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M12.011 2.375C6.702 2.375 2.375 6.702 2.375 12.011C2.375 13.844 2.894 15.556 3.794 17.009L2.375 21.625L7.153 20.252C8.544 21.08 10.22 21.646 12.011 21.646C17.32 21.646 21.647 17.32 21.647 12.011C21.647 6.702 17.32 2.375 12.011 2.375Z" fill="#25D366"/>
       <path d="M12.011 3.5C7.309 3.5 3.5 7.309 3.5 12.011C3.5 13.67 3.978 15.221 4.809 16.539L3.5 20.5L7.618 19.191C8.887 19.98 10.392 20.521 12.011 20.521C16.713 20.521 20.521 16.713 20.521 12.011C20.521 7.309 16.713 3.5 12.011 3.5ZM17.476 14.815C17.26 14.707 16.205 14.193 16.009 14.12C15.813 14.048 15.67 14.012 15.526 14.227C15.383 14.443 14.972 14.921 14.847 15.064C14.721 15.207 14.596 15.225 14.381 15.118C14.165 15.01 13.471 14.781 12.651 14.049C12.013 13.481 11.583 12.779 11.458 12.564C11.332 12.348 11.444 12.232 11.553 12.124C11.65 12.027 11.769 11.87 11.877 11.745C11.984 11.619 12.02 11.53 12.092 11.387C12.163 11.243 12.128 11.118 12.074 11.011C12.02 10.903 11.572 9.816 11.386 9.368C11.205 8.932 11.021 8.99 10.884 8.983L10.395 8.974C10.228 8.974 9.957 9.037 9.734 9.28C9.511 9.522 8.88 10.11 8.88 11.314C8.88 12.518 9.754 13.682 9.876 13.844C9.999 14.006 11.597 16.48 14.04 17.534C14.62 17.785 15.076 17.935 15.429 18.047C16.012 18.232 16.541 18.206 16.96 18.143C17.427 18.073 18.397 17.555 18.6 16.985C18.802 16.415 18.802 15.932 18.742 15.825C18.681 15.717 18.52 15.655 17.304 15.043L17.476 14.815Z" fill="white"/>
@@ -1362,19 +1224,18 @@
   </a>
   <!-- Mobile Menu Overlay -->
   <!-- Mobile Menu Overlay -->
-  <div class="fixed inset-0 z-[60] bg-[#121110]/95 backdrop-blur-xl flex flex-col items-center justify-center space-y-8 opacity-0 pointer-events-none transition-all duration-500"
+  <div class="fixed inset-0 z-[60] bg-[#2B1B14]/95 backdrop-blur-xl flex flex-col items-center justify-center space-y-8 opacity-0 pointer-events-none transition-all duration-500"
     id="mobile-menu-overlay">
     <button class="absolute top-6 right-6 text-white" id="close-menu">
       <span class="material-symbols-outlined text-4xl">close</span>
     </button>
     <a class="serif text-4xl text-white hover:text-accent transition-all duration-300" href="#hero">Início</a>
-    <a class="serif text-4xl text-white hover:text-accent transition-all duration-300" href="#metodo">O Método</a>
-    <a class="serif text-4xl text-white hover:text-accent transition-all duration-300" href="#muses">Muses</a>
+
     <a class="serif text-4xl text-white hover:text-accent transition-all duration-300" href="#sobre">A Mentora</a>
-    <a class="serif text-4xl text-white hover:text-accent transition-all duration-300" href="#bonus">Bônus</a>
+
     <a class="serif text-4xl text-white hover:text-accent transition-all duration-300" href="#faq">FAQ</a>
     <div class="pt-12">
-      <a class="bg-white text-primary-dark px-8 py-4 rounded-full font-bold uppercase text-xs tracking-widest atmospheric-shadow"
+      <a class="bg-surface-container-low text-primary-dark px-8 py-4 rounded-full font-bold uppercase text-xs tracking-widest atmospheric-shadow"
         href="#oferta">Garantir Vaga</a>
     </div>
   </div>
@@ -1476,12 +1337,29 @@
       });
     }
 
-    // FAQ Accordion
-    document.querySelectorAll('.faq-item').forEach(item => {
+    // FAQ Accordion - High Performance scrollHeight logic
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
       item.addEventListener('click', () => {
+        const content = item.querySelector('.faq-content');
         const isActive = item.classList.contains('active');
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-        if (!isActive) item.classList.add('active');
+        
+        // Close others
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('active');
+            otherItem.querySelector('.faq-content').style.maxHeight = '0';
+          }
+        });
+        
+        // Toggle current
+        if (!isActive) {
+          item.classList.add('active');
+          content.style.maxHeight = content.scrollHeight + 'px';
+        } else {
+          item.classList.remove('active');
+          content.style.maxHeight = '0';
+        }
       });
     });
 
@@ -1502,157 +1380,7 @@
     document.addEventListener('DOMContentLoaded', () => document.body.classList.add('page-load'));
 
 
-// Carousel JS Logic
-const slides = document.querySelectorAll('.carousel-slide');
-if(slides.length > 0) {
-  const btnPrev = document.querySelector('.btn-prev');
-  const btnNext = document.querySelector('.btn-next');
-  let currentSlide = 0;
-  const totalSlides = slides.length;
-  let carouselInterval;
-  
-  let startX = 0;
-  let currentTranslate = 0;
-  let isDragging = false;
 
-  function updateCarousel() {
-    slides.forEach((slide, index) => {
-      slide.classList.remove('active', 'prev', 'next', 'prev-hidden', 'next-hidden');
-      slide.style.transform = ''; 
-      slide.style.transition = ''; 
-      
-      if (index === currentSlide) {
-        slide.classList.add('active');
-      } else if (index === (currentSlide - 1 + totalSlides) % totalSlides) {
-        slide.classList.add('prev');
-      } else if (index === (currentSlide + 1) % totalSlides) {
-        slide.classList.add('next');
-      } else if (index === (currentSlide - 2 + totalSlides) % totalSlides) {
-        slide.classList.add('prev-hidden');
-      } else if (index === (currentSlide + 2) % totalSlides) {
-        slide.classList.add('next-hidden');
-      } else {
-        slide.classList.add('next-hidden');
-      }
-    });
-  }
-
-  function nextSlide() {
-    currentSlide = (currentSlide + 1) % totalSlides;
-    updateCarousel();
-  }
-
-  function prevSlide() {
-    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-    updateCarousel();
-  }
-
-  function startAutoplay() {
-    stopAutoplay();
-    carouselInterval = setInterval(nextSlide, 3500);
-  }
-
-  function stopAutoplay() {
-    if (carouselInterval) clearInterval(carouselInterval);
-  }
-
-  if(btnNext && btnPrev) {
-    btnNext.addEventListener('click', () => { nextSlide(); startAutoplay(); });
-    btnPrev.addEventListener('click', () => { prevSlide(); startAutoplay(); });
-  }
-
-  const track = document.querySelector('.carousel-track');
-  
-  function dragStart(e) {
-    if(e.type === 'touchstart') {
-      startX = e.touches[0].clientX;
-    } else {
-      startX = e.clientX;
-      track.style.cursor = 'grabbing';
-    }
-    isDragging = true;
-    stopAutoplay();
-    
-    // Remove transition so it follows mouse immediately
-    slides.forEach(slide => slide.style.transition = 'none');
-  }
-
-  function dragMove(e) {
-    if(!isDragging) return;
-    let currentPosition = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
-    currentTranslate = currentPosition - startX;
-    
-    const isMobile = window.innerWidth <= 768;
-    const prevOffset = isMobile ? -100 : -130;
-    const nextOffset = isMobile ? 0 : 30;
-
-    slides.forEach((slide) => {
-      if(slide.classList.contains('active')) {
-        slide.style.transform = `translate(calc(-50% + ${currentTranslate}px), -50%) scale(1.1)`;
-      } else if(slide.classList.contains('prev')) {
-        slide.style.transform = `translate(calc(${prevOffset}% + ${currentTranslate}px), -50%) scale(0.85)`;
-      } else if(slide.classList.contains('next')) {
-        slide.style.transform = `translate(calc(${nextOffset}% + ${currentTranslate}px), -50%) scale(0.85)`;
-      }
-    });
-  }
-
-  function dragEnd() {
-    if(!isDragging) return;
-    isDragging = false;
-    track.style.cursor = 'grab';
-    
-    slides.forEach(slide => slide.style.transition = 'all 0.8s cubic-bezier(0.22, 1, 0.36, 1)');
-    
-    if (currentTranslate > 70) {
-      prevSlide();
-    } else if (currentTranslate < -70) {
-      nextSlide();
-    } else {
-      updateCarousel();
-    }
-    
-    currentTranslate = 0;
-    startAutoplay();
-  }
-
-  if(track) {
-    track.style.cursor = 'grab';
-    track.style.touchAction = 'pan-y'; // Prevent zooming, allow vertical scroll
-    
-    // Touch Events
-    track.addEventListener('touchstart', dragStart, {passive: true});
-    track.addEventListener('touchmove', dragMove, {passive: true});
-    track.addEventListener('touchend', dragEnd);
-    
-    // Mouse Events
-    track.addEventListener('mousedown', dragStart);
-    window.addEventListener('mousemove', dragMove);
-    window.addEventListener('mouseup', dragEnd);
-    window.addEventListener('mouseleave', dragEnd); // Catch if mouse leaves window
-  }
-
-  slides.forEach((slide) => {
-    slide.addEventListener('click', (e) => {
-      // Prevent click if user was dragging
-      if (Math.abs(currentTranslate) > 10) return;
-      
-      if (slide.classList.contains('prev')) {
-        prevSlide();
-        startAutoplay();
-      } else if (slide.classList.contains('next')) {
-        nextSlide();
-        startAutoplay();
-      }
-    });
-    
-    const img = slide.querySelector('img');
-    if(img) img.addEventListener('dragstart', (e) => e.preventDefault());
-  });
-
-  updateCarousel();
-  startAutoplay();
-}
 
 // Consolidated parallax and other listeners above
 
@@ -1669,10 +1397,10 @@ const counterObserver = new IntersectionObserver((entries) => {
       const updateCounter = () => {
         current += step;
         if (current < countTo) {
-          target.innerText = Math.ceil(current) + (target.getAttribute('data-suffix') || '');
+          target.textContent = Math.ceil(current) + (target.getAttribute('data-suffix') || '');
           requestAnimationFrame(updateCounter);
         } else {
-          target.innerText = countTo + (target.getAttribute('data-suffix') || '');
+          target.textContent = countTo + (target.getAttribute('data-suffix') || '');
         }
       };
       updateCounter();
