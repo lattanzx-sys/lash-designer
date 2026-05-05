@@ -5,6 +5,8 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#805533" />
   
   <!-- SEO Primary Meta Tags -->
   <title>Curso de Lash Design Premium | Método M.O.P | Joyce Bendia</title>
@@ -30,22 +32,34 @@
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Course",
-    "name": "Método M.O.P - Maestria em Lash Design",
-    "description": "Curso completo de extensão de cílios focado em técnica avançada, visagismo e posicionamento de luxo.",
-    "provider": {
-      "@type": "Person",
-      "name": "Joyce Bendia",
-      "sameAs": "https://www.instagram.com/joycebendia"
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Método M.O.P - Maestria em Lash Design",
+      "description": "Curso completo de extensão de cílios focado em técnica avançada, visagismo e posicionamento de luxo.",
+      "provider": {
+        "@type": "Person",
+        "name": "Joyce Bendia",
+        "sameAs": "https://www.instagram.com/joycebendia"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "Online",
+        "courseWorkload": "PT20H"
+      }
     },
-    "hasCourseInstance": {
-      "@type": "CourseInstance",
-      "courseMode": "Online",
-      "courseWorkload": "PT20H"
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Joyce Bendia Lash Academy",
+      "url": "https://joycebendia.com.br",
+      "logo": "https://joycebendia.com.br/logo.png",
+      "sameAs": [
+        "https://www.instagram.com/joycebendia"
+      ]
     }
-  }
+  ]
   </script>
   <script type="application/ld+json">
   {
@@ -91,53 +105,21 @@
       theme: {
         extend: {
           "colors": {
-            "surface": "#faf9f6",
-            "secondary-fixed": "#f3dfce",
-            "on-primary-fixed-variant": "#653d1e",
-            "secondary-fixed-dim": "#d6c3b3",
-            "surface-tint": "#805533",
-            "primary": "#805533",
-            "surface-container-high": "#e9e8e5",
-            "background": "#faf9f6",
-            "surface-container": "#efeeeb",
-            "on-primary-fixed": "#301400",
-            "error": "#ba1a1a",
-            "on-background": "#1a1c1a",
-            "surface-container-lowest": "#ffffff",
-            "surface-dim": "#dbdad7",
-            "on-surface": "#1a1c1a",
-            "error-container": "#ffdad6",
-            "tertiary-fixed-dim": "#ecbaba",
-            "on-error-container": "#93000a",
-            "surface-variant": "#e3e2e0",
-            "inverse-surface": "#2f312f",
-            "primary-fixed": "#ffdcc5",
-            "outline-variant": "#d0c5af",
-            "on-primary-container": "#633c1d",
-            "tertiary-fixed": "#ffdad9",
-            "on-tertiary": "#ffffff",
-            "surface-bright": "#faf9f6",
-            "primary-fixed-dim": "#f4bb92",
-            "on-secondary-container": "#706254",
-            "on-surface-variant": "#4d4635",
-            "secondary": "#6a5c4e",
-            "tertiary-container": "#d7a7a7",
-            "primary-container": "#dea780",
-            "tertiary": "#7b5455",
+            "surface": "#f9f8f5",
+            "background": "#f7f6f2",
+            "primary": "#0D9488",
+            "primary-dark": "#0A746A",
+            "secondary": "#d6c3b3",
+            "accent": "#f3dfce",
+            "on-surface": "#28251d",
+            "on-background": "#28251d",
             "on-primary": "#ffffff",
-            "surface-container-low": "#f4f3f1",
-            "inverse-on-surface": "#f2f1ee",
-            "on-tertiary-fixed": "#2f1314",
-            "on-secondary-fixed-variant": "#514538",
-            "secondary-container": "#f3dfce",
-            "inverse-primary": "#f4bb92",
-            "outline": "#7f7663",
-            "on-secondary": "#ffffff",
-            "on-tertiary-fixed-variant": "#613d3e",
-            "on-error": "#ffffff",
-            "on-tertiary-container": "#5f3c3c",
-            "surface-container-highest": "#e3e2e0",
-            "on-secondary-fixed": "#231a0f"
+            "muted": "#8c857b",
+            "border": "#e5e1d8",
+            "surface-container": "#f1eee8",
+            "surface-container-high": "#e9e5db",
+            "surface-container-low": "#f9f8f5",
+            "surface-container-lowest": "#ffffff"
           },
           "borderRadius": {
             "DEFAULT": "0.125rem",
@@ -158,8 +140,8 @@
   <style>
     body {
       font-family: 'Manrope', sans-serif;
-      background-color: #faf9f6;
-      color: #1a1c1a;
+      background-color: #f7f6f2;
+      color: #28251d;
     }
 
     .serif {
@@ -170,7 +152,7 @@
     .signature {
       font-family: 'Pinyon Script', cursive;
       font-size: 1.8rem;
-      color: #805533;
+      color: #0D9488;
     }
 
     .material-symbols-outlined {
@@ -206,7 +188,7 @@
 
     .hero-arch {
       border-radius: 200px 200px 16px 16px;
-      box-shadow: 0 40px 80px rgba(128, 85, 51, 0.15);
+      box-shadow: 0 40px 80px rgba(40, 37, 29, 0.08);
     }
 
     @media (max-width: 768px) {
@@ -515,69 +497,38 @@
     .text-on-dark h1, .text-on-dark h2, .text-on-dark h3, .text-on-dark h4 { color: #f5ede0 !important; }
     .text-on-dark p, .text-on-dark span:not(.text-primary) { color: rgba(245, 237, 224, 0.7) !important; }
     .text-on-dark .bg-surface-container-lowest { background-color: rgba(255,255,255,0.05) !important; backdrop-filter: blur(10px); border-color: rgba(212,175,110,0.1) !important; }
-    .text-on-dark .text-on-surface-variant { color: rgba(245, 237, 224, 0.5) !important; }
-    .text-on-dark .bg-surface-container-low { background-color: rgba(0,0,0,0.2) !important; }
-    .text-on-dark .border-primary\/20 { border-color: rgba(212,175,110,0.2) !important; }
+    /* Estilos Genéricos de Seção */
+    section {
+      transition: background-color 1s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
 
-    /* ===== SEÇÃO PORTAL DE ENTRADA ===== */
+    /* ===== SEÇÃO GALERIA / PORTAL ===== */
     #portal-entrada {
       position: relative;
-      background: #1a1410;
-      margin-top: -1px; /* Previne a linha branca de 1px entre seções */
-    }
-
-    #portal-entrada::before {
-      content: "";
-      position: absolute;
-      top: -180px;
-      left: 0;
-      width: 100%;
-      height: 260px;
-      background: linear-gradient(
-        to bottom,
-        rgba(197, 163, 134, 0) 0%,
-        rgba(174, 134, 103, 0.7) 40%,
-        #573d2b 75%,
-        #1a1410 100%
-      );
-      pointer-events: none;
-      z-index: 0;
-    }
-    .portal-arch-clean {
-      position: relative;
-      background: #1a1410;
-      padding: 120px 24px 100px;
-      overflow: hidden;
-    }
-
-    /* Overlay de profundidade e brilho focal */
-    .portal-depth-overlay {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 50% 100%, rgba(212, 175, 110, 0.2) 0%, transparent 70%);
-      pointer-events: none;
+      background: #ffffff;
+      margin-top: -1px;
     }
 
     .faq-dark-card {
-      background: rgba(255, 255, 255, 0.03) !important;
+      background: rgba(13, 148, 136, 0.03) !important;
       backdrop-filter: blur(15px);
-      border: 1px solid rgba(212, 175, 110, 0.1) !important;
-      border-left: 4px solid rgba(212, 175, 110, 0.2) !important;
+      border: 1px solid rgba(13, 148, 136, 0.1) !important;
+      border-left: 4px solid rgba(13, 148, 136, 0.2) !important;
       transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .faq-dark-card:hover, .faq-dark-card.active {
-      background: rgba(255, 255, 255, 0.06) !important;
-      border-left-color: #d4af6e !important;
+      background: rgba(13, 148, 136, 0.06) !important;
+      border-left-color: #0D9488 !important;
       transform: translateX(10px);
     }
-    .faq-dark-card h4 { color: #f5ede0 !important; }
-    .faq-dark-card .faq-content { color: rgba(245, 237, 224, 0.6) !important; }
+    .faq-dark-card h4 { color: #0f172a !important; }
+    .faq-dark-card .faq-content { color: rgba(15, 23, 42, 0.6) !important; }
 
     /* Estilos do Portal Limpo */
     .portal-arch-clean {
       position: relative;
-      background: #1a1410;
-      padding: 120px 24px 100px;
+      background: #ffffff;
+      padding: 80px 24px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -587,7 +538,7 @@
     .portal-depth-overlay {
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 50% 0%, rgba(212, 175, 110, 0.1) 0%, transparent 80%);
+      background: radial-gradient(circle at 50% 100%, rgba(13, 148, 136, 0.05) 0%, transparent 70%);
       pointer-events: none;
       z-index: 1;
     }
@@ -596,7 +547,7 @@
     .portal-divider {
       width: min(180px, 40vw);
       height: 1px;
-      background: linear-gradient(to right, transparent, rgba(212, 175, 110, 0.5), transparent);
+      background: linear-gradient(to right, transparent, rgba(13, 148, 136, 0.3), transparent);
       margin: 0 auto;
     }
 
@@ -632,10 +583,10 @@
       opacity: 0;
       z-index: 0;
       pointer-events: none;
-      border: 1px solid rgba(212, 175, 110, 0.2);
+      border: 1px solid rgba(13, 148, 136, 0.1);
       border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     }
     @media (min-width: 768px) {
       .carousel-slide {
@@ -648,8 +599,8 @@
       z-index: 10;
       transform: translate(-50%, -50%) scale(1.1);
       filter: brightness(1) grayscale(0);
-      box-shadow: 0 40px 100px rgba(0,0,0,0.8);
-      border-color: rgba(212, 175, 110, 0.5);
+      box-shadow: 0 40px 100px rgba(13, 148, 136, 0.15);
+      border-color: rgba(13, 148, 136, 0.3);
       pointer-events: auto;
     }
     .carousel-slide.prev {
@@ -926,13 +877,13 @@
       left: 0;
       width: 0%;
       height: 2px;
-      background: #d4af6e;
+      background: #0D9488;
       z-index: 101;
       transition: width 0.1s ease-out;
     }
   </style>
 </head>
-<body class="bg-surface text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<body class="bg-surface text-on-surface selection:bg-primary/10 selection:text-primary">
   <div class="noise-overlay"></div>
   
   <!-- Floating Premium Navigation -->
@@ -974,8 +925,8 @@
     <!-- HERO -->
     <section id="hero" class="relative min-h-[95dvh] flex items-center pt-32 pb-20 overflow-hidden">
       <div class="absolute inset-0 z-0">
-        <div class="absolute top-0 right-0 w-1/2 h-full bg-secondary-fixed/30 blur-[120px] rounded-full -mr-[10%] -mt-[10%]"></div>
-        <div class="absolute bottom-0 left-0 w-1/3 h-1/2 bg-primary-fixed/20 blur-[100px] rounded-full -ml-[5%]"></div>
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-accent/20 blur-[120px] rounded-full -mr-[10%] -mt-[10%]"></div>
+        <div class="absolute bottom-0 left-0 w-1/3 h-1/2 bg-secondary/10 blur-[100px] rounded-full -ml-[5%]"></div>
       </div>
 
       <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-12 items-center relative z-10">
@@ -1011,7 +962,7 @@
 
         <div class="md:col-span-5 relative page-load entrance-delay-1">
           <div class="relative z-10 hero-arch overflow-hidden aspect-[4/5] bg-surface-container">
-            <img src="joyce_bendia_portrait_1777949178027.png" class="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000 parallax-image" alt="Joyce Bendia - Especialista e Mentora de Lash Design Premium" loading="eager">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&fit=crop" class="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000 parallax-image" alt="Joyce Bendia - Especialista e Mentora de Lash Design Premium" loading="eager">
           </div>
           <div class="absolute -bottom-6 -left-6 bg-white p-6 atmospheric-shadow rounded-xl z-20 reveal entrance-delay-2 max-w-[180px]">
             <span class="block text-3xl font-serif text-primary mb-1 tracking-tighter"><span class="counter" data-count="45">0</span> Dias</span>
@@ -1038,7 +989,7 @@
     </div>
 
     <!-- PROBLEM -->
-    <section class="py-32 px-6 bg-surface overflow-hidden">
+    <section class="py-32 px-6 bg-surface-container-low overflow-hidden">
       <div class="max-w-7xl mx-auto">
         <div class="grid md:grid-cols-2 gap-20 items-end mb-24">
           <div class="reveal">
@@ -1081,9 +1032,9 @@
     </section>
 
     <!-- METHOD -->
-    <section id="metodo" class="py-32 px-6 bg-surface-container-lowest relative overflow-hidden">
+    <section id="metodo" class="py-32 px-6 bg-white relative overflow-hidden">
       <div class="absolute inset-0 opacity-20 pointer-events-none">
-         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-gradient-to-b from-primary-fixed/40 to-transparent blur-[120px]"></div>
+         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-gradient-to-b from-accent/30 to-transparent blur-[120px]"></div>
       </div>
       
       <div class="max-w-5xl mx-auto text-center mb-24 reveal">
@@ -1094,7 +1045,7 @@
 
       <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-16 relative">
         <div class="text-center space-y-6 reveal">
-          <div class="text-8xl font-serif text-primary/10 select-none">01</div>
+          <div class="text-8xl font-serif text-secondary/20 select-none">01</div>
           <h4 class="text-sm font-bold uppercase tracking-[0.3em] text-primary">Técnica de Elite</h4>
           <h3 class="serif text-3xl">Retenção de Cílios de 45 Dias</h3>
           <p class="text-on-surface/60 leading-relaxed">
@@ -1102,7 +1053,7 @@
           </p>
         </div>
         <div class="text-center space-y-6 reveal delay-200">
-          <div class="text-8xl font-serif text-primary/10 select-none">02</div>
+          <div class="text-8xl font-serif text-secondary/20 select-none">02</div>
           <h4 class="text-sm font-bold uppercase tracking-[0.3em] text-primary">Business Luxury</h4>
           <h3 class="serif text-3xl">Ticket Alto e Fidelidade</h3>
           <p class="text-on-surface/60 leading-relaxed">
@@ -1110,7 +1061,7 @@
           </p>
         </div>
         <div class="text-center space-y-6 reveal delay-400">
-          <div class="text-8xl font-serif text-primary/10 select-none">03</div>
+          <div class="text-8xl font-serif text-secondary/20 select-none">03</div>
           <h4 class="text-sm font-bold uppercase tracking-[0.3em] text-primary">Visagismo Estratégico</h4>
           <h3 class="serif text-3xl">Design que Valoriza</h3>
           <p class="text-on-surface/60 leading-relaxed">
@@ -1121,7 +1072,7 @@
     </section>
 
     <!-- TESTIMONIALS (MUSES) -->
-    <section id="muses" class="py-32 px-6 bg-surface overflow-hidden">
+    <section id="muses" class="py-32 px-6 bg-surface-container-low overflow-hidden">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-24 reveal">
           <span class="text-primary font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">Transformação Real</span>
@@ -1139,7 +1090,7 @@
             </div>
             <p class="text-lg leading-relaxed">"Antes do M.O.P eu tinha medo das clientes reclamarem da queda. Hoje minha agenda está lotada e cobro 3x mais do que antes."</p>
             <div class="flex items-center gap-4 pt-6">
-              <div class="w-12 h-12 rounded-full bg-secondary-fixed"></div>
+              <div class="w-12 h-12 rounded-full bg-surface-container-high"></div>
               <div>
                 <span class="block font-bold text-sm text-on-surface">Mariana S.</span>
                 <span class="text-[10px] uppercase tracking-widest opacity-50">Lash Designer Senior</span>
@@ -1147,7 +1098,7 @@
             </div>
           </div>
           
-          <div class="bg-primary text-on-primary p-10 rounded-3xl atmospheric-shadow space-y-6 italic">
+          <div class="bg-on-surface text-surface p-10 rounded-3xl atmospheric-shadow space-y-6 italic">
             <div class="flex text-white/40 mb-4">
               <span class="material-symbols-outlined !text-xl fill-1">star</span>
               <span class="material-symbols-outlined !text-xl fill-1">star</span>
@@ -1157,7 +1108,7 @@
             </div>
             <p class="text-lg leading-relaxed">"O visagismo mudou tudo. Minhas clientes sentem que o trabalho é exclusivo para elas. Joyce é a melhor mentora que já tive."</p>
             <div class="flex items-center gap-4 pt-6">
-              <div class="w-12 h-12 rounded-full bg-white/20"></div>
+              <div class="w-12 h-12 rounded-full bg-surface/20"></div>
               <div>
                 <span class="block font-bold text-sm">Carolina L.</span>
                 <span class="text-[10px] uppercase tracking-widest opacity-60">Studio Luxury Beauty</span>
@@ -1175,7 +1126,7 @@
             </div>
             <p class="text-lg leading-relaxed">"Saí do zero e em 3 meses já tinha meu próprio espaço. O método é prático e o suporte da Joyce é impecável."</p>
             <div class="flex items-center gap-4 pt-6">
-              <div class="w-12 h-12 rounded-full bg-secondary-fixed"></div>
+              <div class="w-12 h-12 rounded-full bg-surface-container-high"></div>
               <div>
                 <span class="block font-bold text-sm text-on-surface">Beatriz M.</span>
                 <span class="text-[10px] uppercase tracking-widest opacity-50">Iniciante de Sucesso</span>
@@ -1187,20 +1138,18 @@
     </section>
 
     <!-- GALLERY -->
-    <section id="portal-entrada" class="relative bg-[#1a1410] overflow-hidden">
-      <div class="portal-arch-clean">
-        <div class="portal-depth-overlay"></div>
-        
-        <div class="max-w-4xl mx-auto text-center mb-16 relative z-10 portal-reveal">
+    <section id="portal-entrada" class="relative bg-white py-32 overflow-hidden border-y border-border/30">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-4xl mx-auto text-center mb-16 relative z-10 reveal">
           <span class="text-[10px] uppercase tracking-[0.5em] text-primary font-bold mb-4 block">Portfólio & Resultados</span>
-          <h2 class="serif text-4xl md:text-6xl text-white mb-6">O Padrão <span class="italic text-primary">Joyce Bendia</span></h2>
+          <h2 class="serif text-4xl md:text-6xl text-on-surface mb-6">O Padrão <span class="italic text-primary">Joyce Bendia</span></h2>
           <div class="portal-divider"></div>
         </div>
 
-        <div class="editorial-carousel-container relative z-10 portal-reveal portal-reveal-delay-2">
+        <div class="editorial-carousel-container relative z-10 reveal delay-200">
           <div class="carousel-track" id="carouselTrack">
             <div class="carousel-slide active">
-              <img src="lash_result_1_1777949221106.png" class="w-full h-full object-cover" alt="Resultado de Extensão de Cílios Premium - Método M.O.P Joyce Bendia" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1583001838478-224a8e552552?w=800&fit=crop" class="w-full h-full object-cover" alt="Resultado de Extensão de Cílios Premium - Método M.O.P Joyce Bendia" loading="lazy">
               <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent text-center">
                 <span class="text-[10px] text-primary font-bold uppercase tracking-widest">Efeito Molhado Premium</span>
               </div>
@@ -1222,9 +1171,9 @@
           <button class="carousel-btn btn-next" id="nextBtn" aria-label="Próximo"><span class="material-symbols-outlined">chevron_right</span></button>
         </div>
 
-        <div class="mt-16 text-center relative z-10 portal-reveal portal-reveal-delay-3">
-          <p class="text-white/40 text-[10px] uppercase tracking-[0.25em] mb-12">A técnica que transforma olhares e carreiras</p>
-          <a href="#oferta" class="btn-portal btn-shimmer">Garantir Minha Vaga</a>
+        <div class="mt-16 text-center relative z-10 reveal delay-300">
+          <p class="text-on-surface/40 text-[10px] uppercase tracking-[0.25em] mb-12">A técnica que transforma olhares e carreiras</p>
+          <a href="#oferta" class="px-12 py-6 bg-primary text-on-primary text-[10px] font-bold uppercase tracking-[0.3em] rounded-full hover:scale-105 transition-transform inline-block atmospheric-shadow btn-shimmer">Garantir Minha Vaga</a>
         </div>
       </div>
     </section>
@@ -1234,9 +1183,9 @@
       <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
         <div class="relative reveal">
           <div class="relative z-10 hero-arch overflow-hidden aspect-[4/5] bg-surface-container-high atmospheric-shadow">
-            <img src="joyce_bendia_portrait_1777949178027.png" class="w-full h-full object-cover" alt="Joyce Bendia - Autora do Método M.O.P e Mentora Lash Designer" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&fit=crop" class="w-full h-full object-cover" alt="Joyce Bendia - Autora do Método M.O.P e Mentora Lash Designer" loading="lazy">
           </div>
-          <div class="absolute -top-10 -left-10 signature text-7xl text-primary/10 rotate-[-15deg] select-none pointer-events-none">Obsessão</div>
+          <div class="absolute -top-10 -left-10 signature text-7xl text-secondary/10 rotate-[-15deg] select-none pointer-events-none">Obsessão</div>
         </div>
         
         <div class="space-y-8 reveal delay-200">
@@ -1309,7 +1258,7 @@
     </section>
 
     <!-- OFERTA -->
-    <section id="oferta" class="py-32 px-6 bg-primary-fixed text-on-primary-fixed relative overflow-hidden">
+    <section id="oferta" class="py-32 px-6 bg-accent/10 text-on-surface relative overflow-hidden">
       <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
       <div class="max-w-4xl mx-auto bg-surface p-12 md:p-24 atmospheric-shadow relative z-10 border border-primary/10">
         <div class="text-center space-y-8 mb-16 reveal">
@@ -1338,7 +1287,7 @@
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="py-32 px-6 bg-surface overflow-hidden">
+    <section id="faq" class="py-32 px-6 bg-surface-container-lowest overflow-hidden">
       <div class="max-w-3xl mx-auto">
         <div class="text-center mb-20 reveal">
           <h2 class="serif text-5xl md:text-6xl mb-4">Dúvidas <span class="italic text-primary">Frequentes</span></h2>
@@ -1412,19 +1361,20 @@
     </svg>
   </a>
   <!-- Mobile Menu Overlay -->
-  <div class="fixed inset-0 z-[60] glass-nav flex flex-col items-center justify-center space-y-8"
+  <!-- Mobile Menu Overlay -->
+  <div class="fixed inset-0 z-[60] bg-[#121110]/95 backdrop-blur-xl flex flex-col items-center justify-center space-y-8 opacity-0 pointer-events-none transition-all duration-500"
     id="mobile-menu-overlay">
-    <button class="absolute top-6 right-6 text-primary" id="close-menu">
+    <button class="absolute top-6 right-6 text-white" id="close-menu">
       <span class="material-symbols-outlined text-4xl">close</span>
     </button>
-    <a class="serif text-4xl hover:text-primary transition-all duration-300" href="#hero">Início</a>
-    <a class="serif text-4xl hover:text-primary transition-all duration-300" href="#metodo">O Método</a>
-    <a class="serif text-4xl hover:text-primary transition-all duration-300" href="#muses">Muses</a>
-    <a class="serif text-4xl hover:text-primary transition-all duration-300" href="#sobre">A Mentora</a>
-    <a class="serif text-4xl hover:text-primary transition-all duration-300" href="#bonus">Bônus</a>
-    <a class="serif text-4xl hover:text-primary transition-all duration-300" href="#faq">FAQ</a>
+    <a class="serif text-4xl text-white hover:text-accent transition-all duration-300" href="#hero">Início</a>
+    <a class="serif text-4xl text-white hover:text-accent transition-all duration-300" href="#metodo">O Método</a>
+    <a class="serif text-4xl text-white hover:text-accent transition-all duration-300" href="#muses">Muses</a>
+    <a class="serif text-4xl text-white hover:text-accent transition-all duration-300" href="#sobre">A Mentora</a>
+    <a class="serif text-4xl text-white hover:text-accent transition-all duration-300" href="#bonus">Bônus</a>
+    <a class="serif text-4xl text-white hover:text-accent transition-all duration-300" href="#faq">FAQ</a>
     <div class="pt-12">
-      <a class="bg-primary text-on-primary px-8 py-4 rounded-full font-bold uppercase text-xs tracking-widest btn-interactive atmospheric-shadow"
+      <a class="bg-white text-primary-dark px-8 py-4 rounded-full font-bold uppercase text-xs tracking-widest atmospheric-shadow"
         href="#oferta">Garantir Vaga</a>
     </div>
   </div>
@@ -1499,16 +1449,6 @@
         mainNav.classList.remove('py-2', 'shadow-md');
       }
       
-      const darkSections = document.querySelectorAll('.text-on-dark, #portal-entrada');
-      let isOverDark = false;
-      darkSections.forEach(section => {
-        const sRect = section.getBoundingClientRect();
-        if (sRect.top <= 80 && sRect.bottom >= 80) isOverDark = true;
-      });
-      
-      if (isOverDark) mainNav.classList.add('glass-nav-dark');
-      else mainNav.classList.remove('glass-nav-dark');
-
       const blurAmount = Math.min(25, scrolled / 20);
       mainNav.style.backdropFilter = `blur(${blurAmount}px)`;
 
